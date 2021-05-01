@@ -170,7 +170,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 amountPlayerCards++
             }
-
             cards.remove(cardId)
         }
     }
