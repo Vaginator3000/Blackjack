@@ -172,7 +172,6 @@ class MainActivity : AppCompatActivity() {
             }
             cards.remove(cardId)
         }
-
     }
 
     private fun activateBtn(key: Int) {
