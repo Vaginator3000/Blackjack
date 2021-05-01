@@ -216,9 +216,6 @@ class MainActivity : AppCompatActivity() {
             activateBtn(1)
             setCashTv(-rateValue.progress)
         }
-
-
-
     }
 
     fun onClicBtnNo(view: View) {
