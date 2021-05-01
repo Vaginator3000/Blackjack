@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainLayout"
+    android:screenOrientation="portrait"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+
+    <TextView
+        android:id="@+id/tvCash"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cashText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.044" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <HorizontalScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/dealerDeck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.362">
+
+            <ImageView
+                android:id="@+id/dCard1"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/dCard2"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/dCard3"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/dCard4"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/dCard5"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/dCard6"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/dCard7"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/dCard8"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/dCard9"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/dCard10"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <HorizontalScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline">
+
+        <LinearLayout
+            android:id="@+id/playerDeck"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="25dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline">
+
+            <ImageView
+                android:id="@+id/pCard1"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/pCard2"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/pCard3"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/pCard4"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/pCard5"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/pCard6"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/pCard7"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/pCard8"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/pCard9"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+            <ImageView
+                android:id="@+id/pCard10"
+                android:layout_width="75dp"
+                android:layout_height="100dp"
+                android:src="@drawable/border" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <Button
+        android:id="@+id/btnPass"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_background"
+        android:clickable="false"
+        android:text="PASS"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvPlayerScore"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <ImageView
+        android:id="@+id/mainDeck"
+        android:layout_width="75dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/back2"
+        android:rotation="90"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView1"
+        app:layout_constraintVertical_bias="0.037" />
+
+    <Button
+        android:id="@+id/btnHit"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:background="@drawable/btn_background"
+        android:clickable="false"
+        android:text="HIT"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/tvPlayerScore"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <TextView
+        android:id="@+id/tvPlayerScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="textView"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <TextView
+        android:id="@+id/tvWinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView1" />
+
+    <TextView
+        android:id="@+id/tvDealerScore"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView1"
+        app:layout_constraintVertical_bias="0.068" />
+
+    <fragment
+        android:id="@+id/fragment2"
+        android:name="com.example.blackjack.restartFragment"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvCash" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/logo"
+        android:paddingTop="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvCash" />
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.blackjack.rateFragment"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.658" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

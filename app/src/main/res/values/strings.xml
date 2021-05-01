@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Blackjack</string>
+    <string name="rateText">rate:\n %d$</string>
+    <string name="cashText">balance: %d$</string>
+    <string name="mainBtn">Start game</string>
+</resources>
