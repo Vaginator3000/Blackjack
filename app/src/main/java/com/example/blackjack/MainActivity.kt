@@ -142,7 +142,6 @@ class MainActivity : AppCompatActivity() {
 //                i--
 //            }
 //
-//
 //        }
 //        thread2.start()
 //        Thread.sleep(500)
