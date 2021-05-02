@@ -3,4 +3,7 @@
     <string name="rateText">rate:\n %d$</string>
     <string name="cashText">balance: %d$</string>
     <string name="mainBtn">Start game</string>
+    <string name="banner_ad_unit_id2">ca-app-pub-39402560999xxxxx/21772xxxxx</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+
 </resources>

@@ -3,15 +3,21 @@ package com.example.blackjack
 import android.content.Context
 import android.content.SharedPreferences
 import android.opengl.Visibility
+import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.HandlerThread
 import android.util.Log
 import android.view.View
+import android.view.animation.*
 import android.widget.ImageView
 import android.widget.Toast
+//import com.google.android.gms.ads.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.rate_fragment.*
 import java.lang.Exception
+import kotlin.concurrent.thread
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
@@ -35,6 +41,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         fragment2.view!!.visibility = View.GONE //don`t show restartFragment
+
+        initAds()
 
         // get cash and set it to textview
         pref = getSharedPreferences("DATA", Context.MODE_PRIVATE)
@@ -75,6 +83,7 @@ class MainActivity : AppCompatActivity() {
                 val cardName = resources.getResourceEntryName(cardId)
                 dealer.addCard(cardName)
 
+                animCard(dCards[amountDealerCards],cardId)
                 dCards[amountDealerCards].setImageResource(cardId)
                 amountDealerCards++
 
@@ -88,6 +97,7 @@ class MainActivity : AppCompatActivity() {
 
             setWinner()
         }
+
     }
 
     private fun setWinner() {
@@ -109,6 +119,34 @@ class MainActivity : AppCompatActivity() {
 
         activateBtn(0)
         playAgain()
+
+    }
+
+    private fun animCard(destination: ImageView, cardId: Int) {
+
+//        val thread2: Thread = Thread {
+//            val anim = TranslateAnimation(mainDeck.x, destination.x, mainDeck.y, destination.y)
+//            anim.duration = 500
+//
+//            runOnUiThread {
+//                mainDeck.animation = anim
+//                Thread.sleep(500)
+//            }
+//            var i = 45
+//            while (i > 0) {
+//                runOnUiThread {
+//                    mainDeck.rotationY -= 10.toFloat()
+//                    mainDeck.rotationX -= 10.toFloat()
+//                    tvCash.text = i.toString()
+//                }
+//                i--
+//            }
+//
+//
+//        }
+//        thread2.start()
+//        Thread.sleep(500)
+
 
     }
 
@@ -223,6 +261,34 @@ class MainActivity : AppCompatActivity() {
 
     fun onClicBtnYes(view: View) {
         this.recreate()
+    }
+
+    private fun initAds() {
+//        MobileAds.initialize(this) {}
+//        val adRequest = AdRequest.Builder().build()
+//        adView.loadAd(adRequest)
+//
+//        adView.adListener = object: AdListener() {
+//            override fun onAdClosed() {
+//                super.onAdClosed()
+//            }
+//
+//            override fun onAdFailedToLoad(p0: LoadAdError) {
+//                super.onAdFailedToLoad(p0)
+//            }
+//
+//            override fun onAdOpened() {
+//                super.onAdOpened()
+//            }
+//
+//            override fun onAdLoaded() {
+//                super.onAdLoaded()
+//            }
+//
+//            override fun onAdClicked() {
+//                super.onAdClicked()
+//            }
+//        }
     }
 
 }
