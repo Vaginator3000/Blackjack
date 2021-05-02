@@ -1,24 +1,24 @@
 package com.example.blackjack
 
+//import com.google.android.gms.ads.*
+
+import android.animation.ObjectAnimator
+import android.app.Activity
 import android.content.Context
 import android.content.SharedPreferences
-import android.opengl.Visibility
-import android.os.AsyncTask
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.HandlerThread
 import android.util.Log
 import android.view.View
-import android.view.animation.*
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.Animation
+import android.view.animation.AnimationSet
 import android.widget.ImageView
 import android.widget.Toast
-//import com.google.android.gms.ads.*
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.rate_fragment.*
-import java.lang.Exception
-import kotlin.concurrent.thread
 import kotlin.random.Random
+
 
 class MainActivity : AppCompatActivity() {
     private var pref : SharedPreferences? = null
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
             val cardName = resources.getResourceEntryName(cardId)
             player.addCard(cardName)
 
-            pCards[amountPlayerCards].setImageResource(cardId)
+            animCard(pCards[amountPlayerCards], cardId)
             amountPlayerCards++
 
             val cardValue = getCardValue(cardName)
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
                 val cardName = resources.getResourceEntryName(cardId)
                 dealer.addCard(cardName)
 
-                animCard(dCards[amountDealerCards],cardId)
+                animCard(dCards[amountDealerCards], cardId)
                 dCards[amountDealerCards].setImageResource(cardId)
                 amountDealerCards++
 
@@ -129,22 +129,74 @@ class MainActivity : AppCompatActivity() {
 //            anim.duration = 500
 //
 //            runOnUiThread {
+//                mainDeck.rotationY -= 10.toFloat()
+//                mainDeck.rotationX -= 10.toFloat()
+//                tvCash.text = "i.toString()"
+//            }
+//
+//            runOnUiThread {
 //                mainDeck.animation = anim
 //                Thread.sleep(500)
-//            }
 //            var i = 45
 //            while (i > 0) {
-//                runOnUiThread {
-//                    mainDeck.rotationY -= 10.toFloat()
-//                    mainDeck.rotationX -= 10.toFloat()
-//                    tvCash.text = i.toString()
-//                }
 //                i--
+//            }
 //            }
 //
 //        }
 //        thread2.start()
 //        Thread.sleep(500)
+        deckCopy.visibility = View.VISIBLE
+
+        //runOnUiThread() {
+            val moveX = ObjectAnimator.ofFloat(deckCopy, View.X, mainDeck.x, destination.x)
+            val moveY = ObjectAnimator.ofFloat(deckCopy, View.Y, mainDeck.y, destination.y + 150)
+            val rotate = ObjectAnimator.ofFloat(deckCopy, "rotation", 90f, 0f)
+
+            Toast.makeText(this, "${destination.x.toString()} - ${destination.y.toString()}", Toast.LENGTH_SHORT).show()
+
+            moveX.duration = 500
+            moveY.duration = 500
+            rotate.duration = 500
+
+            moveX.repeatCount = ObjectAnimator.INFINITE
+            moveY.repeatCount = ObjectAnimator.INFINITE
+            rotate.repeatCount = ObjectAnimator.INFINITE
+
+            moveX.interpolator = AccelerateDecelerateInterpolator()
+            moveY.interpolator = AccelerateDecelerateInterpolator()
+            rotate.interpolator = AccelerateDecelerateInterpolator()
+
+            moveX.repeatCount = 0
+            moveY.repeatCount = 0
+            rotate.repeatCount = 0
+
+            moveX.start()
+            moveY.start()
+            rotate.start()
+
+      //  }
+        deckCopy.setImageResource(cardId)
+//
+//            val thread = Thread(Runnable {
+//                Thread.sleep(200)
+//                runOnUiThread() {
+//                    deckCopy.setImageResource(cardId)
+//                }
+//            }).start()
+
+
+        deckCopy.postDelayed( {
+            deckCopy.visibility = View.GONE
+            destination.setImageResource(cardId)
+        }, 500)
+
+
+//        while (true) {
+//            Log.d("MyLog", "XXXXXXXXXXXX-- ${deckCopy.rotationX.toString()} --XXXXXXXXXXXX")
+//            Log.d("MyLog", "YYYYYYYYYYYY-- ${deckCopy.rotationX.toString()} --YYYYYYYYYYYY")
+//        //    Log.d("MyLog", "----------- ${deckCopy.rotationX.toString()} ------------")
+//        }
 
 
     }
@@ -164,8 +216,30 @@ class MainActivity : AppCompatActivity() {
 
     private fun initCards() {
         cards = deckBuilder.makeDeck(this)
-        pCards = arrayListOf(pCard1,pCard2, pCard3, pCard4, pCard5, pCard6, pCard7, pCard8, pCard9, pCard10)
-        dCards = arrayListOf(dCard1,dCard2, dCard3, dCard4, dCard5, dCard6, dCard7, dCard8, dCard9, dCard10)
+        pCards = arrayListOf(
+            pCard1,
+            pCard2,
+            pCard3,
+            pCard4,
+            pCard5,
+            pCard6,
+            pCard7,
+            pCard8,
+            pCard9,
+            pCard10
+        )
+        dCards = arrayListOf(
+            dCard1,
+            dCard2,
+            dCard3,
+            dCard4,
+            dCard5,
+            dCard6,
+            dCard7,
+            dCard8,
+            dCard9,
+            dCard10
+        )
 
         var isFirstCard = true
         var cardId = 0
@@ -223,20 +297,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun getCardValue(card: String): Int  {
         when(card) {
-            "ace_of_clubs", "ace_of_diamonds", "ace_of_hearts","ace_of_spades" -> return 1
-            "two_of_clubs", "two_of_diamonds", "two_of_hearts","two_of_spades" -> return 2
-            "three_of_clubs", "three_of_diamonds", "three_of_hearts","three_of_spades" -> return 3
-            "four_of_clubs", "four_of_diamonds", "four_of_hearts","four_of_spades" -> return 4
-            "five_of_clubs", "five_of_diamonds", "five_of_hearts","five_of_spades" -> return 5
-            "six_of_clubs", "six_of_diamonds", "six_of_hearts","six_of_spades" -> return 6
-            "seven_of_clubs", "seven_of_diamonds", "seven_of_hearts","seven_of_spades" -> return 7
+            "ace_of_clubs", "ace_of_diamonds", "ace_of_hearts", "ace_of_spades" -> return 1
+            "two_of_clubs", "two_of_diamonds", "two_of_hearts", "two_of_spades" -> return 2
+            "three_of_clubs", "three_of_diamonds", "three_of_hearts", "three_of_spades" -> return 3
+            "four_of_clubs", "four_of_diamonds", "four_of_hearts", "four_of_spades" -> return 4
+            "five_of_clubs", "five_of_diamonds", "five_of_hearts", "five_of_spades" -> return 5
+            "six_of_clubs", "six_of_diamonds", "six_of_hearts", "six_of_spades" -> return 6
+            "seven_of_clubs", "seven_of_diamonds", "seven_of_hearts", "seven_of_spades" -> return 7
             "eight_of_clubs", "eight_of_diamonds", "eight_of_hearts", "eight_of_spades" -> return 8
             "nine_of_clubs", "nine_of_diamonds", "nine_of_hearts", "nine_of_spades" -> return 9
-            "ten_of_clubs", "ten_of_diamonds", "ten_of_hearts", "ten_of_spades"  -> return 10
+            "ten_of_clubs", "ten_of_diamonds", "ten_of_hearts", "ten_of_spades" -> return 10
 
-            "jack_of_clubs", "jack_of_diamonds", "jack_of_hearts", "jack_of_spades"  -> return 10
-            "queen_of_clubs", "queen_of_diamonds", "queen_of_hearts", "queen_of_spades"  -> return 10
-            "king_of_clubs", "king_of_diamonds", "king_of_hearts", "king_of_spades"  -> return 10
+            "jack_of_clubs", "jack_of_diamonds", "jack_of_hearts", "jack_of_spades" -> return 10
+            "queen_of_clubs", "queen_of_diamonds", "queen_of_hearts", "queen_of_spades" -> return 10
+            "king_of_clubs", "king_of_diamonds", "king_of_hearts", "king_of_spades" -> return 10
             else -> return 99999999
         }
     }
