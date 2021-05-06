@@ -28,7 +28,5 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="ca-app-pub-3940256099942544~3347511713"/>
     </application>
-        <!-- android:name="com.google.android.gms.ads.ca-app-pub-5781557024234423~1571900453"
-         android:value="true"/> -->
 
 </manifest>
