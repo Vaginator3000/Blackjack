@@ -4,6 +4,8 @@
     <string name="cashText">balance: %d$</string>
     <string name="mainBtn">Start game</string>
     <string name="banner_ad_unit_id2">ca-app-pub-39402560999xxxxx/21772xxxxx</string>
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_unit_id3">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_unit_id">ca-app-pub-5781557024234423/9945214495</string>
+    <string name="id">ca-app-pub-3940256099942544~3347511713</string>
 
 </resources>
